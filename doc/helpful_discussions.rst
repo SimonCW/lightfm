@@ -4,16 +4,25 @@ Helpful Discussions
 
 Adding user/item features makes my model perform worse than without features
 ============================================================================
-That's not unusual and might have different reasons. For example, your features
-might be simply uninformative and worsen signal to noise ratio.
+That's not unusual and might have different reasons. For one, make sure you 
+don't drop per-user/item features, see :doc:`LightFM<lightfm>`. If that
+doesn't help, your features might be simply uninformative and worsen the 
+signal to noise ratio. You can experiment with different features and try
+discretization strategies for continous features. More strategies and ideas
+can be found here:
 
 - https://github.com/lyst/lightfm/issues/551
+- https://github.com/lyst/lightfm/issues/486
 - https://github.com/lyst/lightfm/issues/176
 - https://github.com/lyst/lightfm/issues/430
 
-Inverse Frequency/Propensity Weighting
-======================================
+My model is recommending mostly the same very popular items to all users
+========================================================================
+You might consider applying inverse propensity weights to your features. 
+See these issues for more information:
+
 - https://github.com/lyst/lightfm/issues/176
+- https://github.com/lyst/lightfm/issues/395
 
 Iterative Training / New Users / Fold-In
 ========================================
